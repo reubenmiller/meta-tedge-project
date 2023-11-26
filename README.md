@@ -3,16 +3,18 @@
 1. Install kas
 
     ```
-    pip install kas
+    pip3 install kas
     ```
 
-2. Checkout this repository
+2. Install just (follow the instructions on the [justfile website](https://just.systems/man/en/chapter_5.html))
+
+3. Checkout this repository
 
     ```sh
     git clone https://github.com/reubenmiller/meta-tedge-project.git
     ```
 
-3. Build the default image
+4. Build the default image
 
     **Raspberry Pi**
 
