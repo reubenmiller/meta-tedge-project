@@ -13,3 +13,7 @@ build-project file:
 # Build demo
 build-demo:
     python3 -m kas build ./projects/demo.yaml
+
+# Publish image to Cumulocity IoT
+publish:
+    ./{{justfile_directory()}}/scripts/publish-c8y.sh
