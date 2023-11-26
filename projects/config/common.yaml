@@ -2,7 +2,8 @@
 header:
   version: 1
 local_conf_header:
-  meta-custom: |
+  meta-common: |
+    PACKAGE_CLASSES ?= "package_rpm"
     VOLATILE_LOG_DIR = "no"
 
     INIT_MANAGER="systemd"
