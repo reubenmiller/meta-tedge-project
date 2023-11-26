@@ -5,6 +5,7 @@ local_conf_header:
   meta-common: |
     PACKAGE_CLASSES ?= "package_rpm"
     VOLATILE_LOG_DIR = "no"
+    EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-dropbear allow-empty-password"
 
     INIT_MANAGER="systemd"
     IMAGE_INSTALL:append = " \
