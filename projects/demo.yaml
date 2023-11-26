@@ -18,17 +18,13 @@ defaults:
   repos:
     branch: kirkstone
 repos:
-  # This entry includes the repository where the config file is located
-  # to the bblayers.conf:
-  meta-custom:
-  # Here we include a list of layers from the poky repository to the
-  # bblayers.conf:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
     layers:
       meta:
       meta-poky:
       meta-yocto-bsp:
+
   meta-raspberrypi:
     url: "https://github.com/agherzan/meta-raspberrypi.git"
 
