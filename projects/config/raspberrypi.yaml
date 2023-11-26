@@ -1,3 +1,5 @@
+header:
+  version: 1
 bblayers_conf_header:
   meta-custom: |
     POKY_BBLAYERS_CONF_VERSION = "2"
