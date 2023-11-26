@@ -16,4 +16,4 @@ build-demo:
 
 # Publish image to Cumulocity IoT
 publish:
-    ./{{justfile_directory()}}/scripts/publish-c8y.sh
+    {{justfile_directory()}}/scripts/publish-c8y.sh
