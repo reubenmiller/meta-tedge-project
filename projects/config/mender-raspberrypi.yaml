@@ -10,7 +10,7 @@ bblayers_conf_header:
 local_conf_header:
   meta-mender: |
     INHERIT += "mender-full"
-    MENDER_ARTIFACT_NAME = "release-1"
+    MENDER_ARTIFACT_NAME = "tedge-release-${IMAGE_VERSION_SUFFIX}"
     SYSTEMD_AUTO_ENABLE:pn-mender-client = "disable"
     RPI_USE_U_BOOT = "1"
     IMAGE_INSTALL:append = " kernel-image kernel-devicetree"
