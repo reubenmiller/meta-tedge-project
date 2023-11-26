@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/66261547b75885786777a0b9c8a4400ab81d432e/kas/schema-kas.json
 header:
   version: 1
 bblayers_conf_header:
@@ -10,10 +11,4 @@ local_conf_header:
   meta-custom: |
     DISTRO_FEATURES:append = " bluez5 bluetooth wifi "
     IMAGE_INSTALL:append = " linux-firmware-rpidistro-bcm43430 bluez5 i2c-tools"
-    VOLATILE_LOG_DIR = "no"
-
-    INIT_MANAGER="systemd"
-    IMAGE_INSTALL:append = " \
-      tedge \
-      tedge-state-scripts \
-    "
+    ENABLE_UART = "1"

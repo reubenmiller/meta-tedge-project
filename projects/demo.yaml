@@ -1,19 +1,13 @@
-# Every file needs to contain a header, that provides kas with information
-# about the context of this file.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/66261547b75885786777a0b9c8a4400ab81d432e/kas/schema-kas.json
 header:
-  # The `version` entry in the header describes for which configuration
-  # format version this file was created for. It is used by kas to figure
-  # out if it is compatible with this file. The version is an integer that
-  # is increased on every format change.
   version: 1
   includes:
     - config/raspberrypi.yaml
     - config/mender-raspberrypi.yaml
 
-# The machine as it is written into the `local.conf` of bitbake.
 machine: raspberrypi4-64
-# The distro name as it is written into the `local.conf` of bitbake.
 distro: poky
+target: core-image-tedge-mender
 defaults:
   repos:
     branch: kirkstone
@@ -45,4 +39,3 @@ repos:
   meta-tedge-bin:
     url: "https://github.com/thin-edge/meta-tedge-bin"
     branch: prod-mender-state-scripts
-
