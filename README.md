@@ -28,3 +28,11 @@
 
     python3 -m kas build ./projects/demo.yaml
     ```
+
+## Using build tasks
+
+### Build demo
+
+```sh
+just build-demo
+```

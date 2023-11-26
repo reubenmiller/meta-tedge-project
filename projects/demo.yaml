@@ -13,7 +13,7 @@ defaults:
     branch: kirkstone
 env:
   IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "tedge-${IMAGE_VERSION_SUFFIX}"
+  MENDER_ARTIFACT_NAME: "tedge${IMAGE_VERSION_SUFFIX}"
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
