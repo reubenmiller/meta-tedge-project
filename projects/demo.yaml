@@ -5,11 +5,14 @@ header:
   # format version this file was created for. It is used by kas to figure
   # out if it is compatible with this file. The version is an integer that
   # is increased on every format change.
-  version: x
+  version: 1
 # The machine as it is written into the `local.conf` of bitbake.
 machine: raspberrypi4-64
 # The distro name as it is written into the `local.conf` of bitbake.
 distro: poky
+defaults:
+  repos:
+    branch: kirkstone
 repos:
   # This entry includes the repository where the config file is located
   # to the bblayers.conf:
@@ -18,7 +21,6 @@ repos:
   # bblayers.conf:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
-    branch: kirkstone
     layers:
       meta:
       meta-poky:
@@ -30,7 +32,6 @@ repos:
 
   meta-openembedded:
     url: "https://git.openembedded.org/meta-openembedded"
-    branch: kirkstone
     layers:
       meta-oe:
       meta-python:
@@ -38,9 +39,7 @@ repos:
       meta-multimedia:
 
   meta-mender:
-    url: "https://git.yoctoproject.org/git/poky"
-    commit: kirkstone
-    branch: kirkstone
+    url: "https://github.com/mendersoftware/meta-mender"
     layers:
       meta-mender-core:
       meta-mender-raspberrypi:
