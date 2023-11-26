@@ -1,0 +1,21 @@
+bblayers_conf_header:
+  meta-custom: |
+    POKY_BBLAYERS_CONF_VERSION = "2"
+    BBPATH = "${TOPDIR}"
+    BBFILES ?= ""
+
+local_conf_header:
+  meta-custom: |
+    INHERIT += "mender-full"
+    MENDER_ARTIFACT_NAME = "release-1"
+
+    SYSTEMD_AUTO_ENABLE:pn-mender-client = "disable"
+
+    RPI_USE_U_BOOT = "1"
+    # Having the serial terminal enabled is useful.
+    ENABLE_UART = "1"
+
+    IMAGE_INSTALL:append = " kernel-image kernel-devicetree"
+    IMAGE_FSTYPES:remove = " rpi-sdimg"
+    SDIMG_ROOTFS_TYPE = "ext4"
+    MENDER_BOOT_PART_SIZE_MB = "64"
