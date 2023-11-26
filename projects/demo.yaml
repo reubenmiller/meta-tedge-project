@@ -2,6 +2,7 @@
 header:
   version: 14
   includes:
+    - config/common.yaml
     - config/raspberrypi.yaml
     - config/mender-raspberrypi.yaml
 
