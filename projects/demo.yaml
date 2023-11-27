@@ -41,7 +41,9 @@ repos:
     url: "https://github.com/mendersoftware/meta-mender"
     patches:
       content-length-check:
+        repo: https://github.com/mendersoftware/mender
         path: patches/mender_content_length_check.patch
+
     layers:
       meta-mender-core:
       meta-mender-raspberrypi:
