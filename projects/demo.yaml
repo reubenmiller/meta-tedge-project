@@ -9,12 +9,15 @@ header:
 machine: raspberrypi4-64
 distro: poky
 target: core-image-tedge-mender
+
+env:
+  IMAGE_VERSION_SUFFIX: "_123123"
+  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE_ID}${IMAGE_VERSION_SUFFIX}"
+
 defaults:
   repos:
     branch: kirkstone
-env:
-  IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "tedge${IMAGE_VERSION_SUFFIX}"
+
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
@@ -36,6 +39,9 @@ repos:
 
   meta-mender:
     url: "https://github.com/mendersoftware/meta-mender"
+    patches:
+      content-length-check:
+        path: patches/mender_content_length_check.patch
     layers:
       meta-mender-core:
       meta-mender-raspberrypi:

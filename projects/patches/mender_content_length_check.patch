@@ -1,0 +1,34 @@
+diff --git a/client/client_update.go b/client/client_update.go
+index 161544e6..b9435e57 100644
+--- a/client/client_update.go
++++ b/client/client_update.go
+@@ -21,6 +21,8 @@ import (
+ 	"io/ioutil"
+ 	"net/http"
+ 	"net/url"
++	"strconv"
++	"strings"
+ 	"time"
+ 
+ 	"github.com/pkg/errors"
+@@ -191,6 +193,20 @@ func (u *UpdateClient) FetchUpdate(
+ 		return nil, -1, err
+ 	}
+ 
++	// Workaround: get content length from content-range header
++	// content-range: bytes 0-67167231/67167232
++	if r.ContentLength < 0 {
++		contentRange := r.Header.Get("Content-Range")
++		log.Infof("Header => Content-Range: %s", contentRange)
++		parts := strings.Split(contentRange, "/")
++		if len(parts) > 1 {
++			if lastByte, parseErr := strconv.ParseInt(parts[1], 10, 64); parseErr == nil {
++				log.Infof("Read content length from Content-Range: %d", lastByte)
++				r.ContentLength = lastByte
++			}
++		}
++	}
++
+ 	if r.ContentLength < 0 {
+ 		r.Body.Close()
+ 		return nil, -1, errors.New("Will not continue with unknown image size.")
