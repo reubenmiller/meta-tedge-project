@@ -33,8 +33,14 @@
 
 ## Using build tasks
 
-### Build demo
+### Build demo (using default machine type)
 
 ```sh
 just build-demo
+```
+
+### Building for a specific machine
+
+```sh
+KAS_MACHINE=raspberrypi3-64 just build-demo
 ```
