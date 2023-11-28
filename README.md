@@ -19,16 +19,16 @@
     **Raspberry Pi**
 
     ```sh
-    python3 -m kas build ./projects/demo.yaml
+    just build-demo
     ```
 
-    Or if you want to configure a common sstate cache and download folder to share amongst different projects then you can use the following environment variables:
+    Or if you want to configure a common sstate cache and download folder to share amongst different projects then can define the following environment files in a local `.env` file:
 
-    ```sh
-    export SSTATE_DIR=/data/yocto/sstate-cache
-    export DL_DIR=/data/yocto/downloads
+    *file: .env**
 
-    python3 -m kas build ./projects/demo.yaml
+    ```
+    SSTATE_DIR=/data/yocto/sstate-cache
+    DL_DIR=/data/yocto/downloads
     ```
 
 ## Using build tasks
@@ -43,4 +43,10 @@ just build-demo
 
 ```sh
 KAS_MACHINE=raspberrypi3-64 just build-demo
+```
+
+Or you can save the KAS_MACHINE value in your .env file
+
+```
+KAS_MACHINE=raspberrypi3-64
 ```
