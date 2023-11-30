@@ -1,10 +1,6 @@
 ## Getting started
 
-1. Checkout the project
-
-    ```sh
-    git clone https://github.com/reubenmiller/meta-tedge-project.git
-    ```
+1. Clone the project and open a console at project's root directory
 
 2. Install just (follow the instructions on the [justfile website](https://just.systems/man/en/chapter_5.html))
 
@@ -24,7 +20,7 @@
 
     Or if you want to configure a common sstate cache and download folder to share amongst different projects then can define the following environment files in a local `.env` file:
 
-    *file: .env**
+    *file: .env*
 
     ```
     SSTATE_DIR=/data/yocto/sstate-cache
