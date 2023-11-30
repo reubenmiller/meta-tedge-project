@@ -5,7 +5,7 @@ header:
     - config/common.yaml
     - config/mender-qemu.yaml
 
-machine: qemuarm64
+machine: qemux86-64
 distro: poky
 target: core-image-tedge-mender
 
