@@ -5,7 +5,11 @@ if ! command -V c8y >/dev/null 2>&1; then
     exit 1
 fi
 
-MACHINE="${MACHINE:-raspberrypi4-64}"
+if [ -n "$KAS_MACHINE" ]; then
+    MACHINE="$KAS_MACHINE"
+else
+    MACHINE="${MACHINE:-raspberrypi4-64}"
+fi
 
 FIRMWARE_FILE=$(find "build/tmp/deploy/images/$MACHINE" -name "*.mender" | tail -1)
 if [ -z "$FIRMWARE_FILE" ]; then
