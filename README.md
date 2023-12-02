@@ -53,3 +53,13 @@ Or you can save the KAS_MACHINE value in your .env file
 ```
 KAS_MACHINE=raspberrypi3-64
 ```
+
+## Tips
+
+### Updating state-scripts
+
+If you have edited the mender state scripts, then you need to run the cleanup task before building again.
+
+```
+just clean
+```
