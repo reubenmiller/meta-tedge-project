@@ -41,4 +41,3 @@ repos:
 
   meta-tedge-bin:
     url: "https://github.com/thin-edge/meta-tedge-bin"
-    branch: prod-mender-state-scripts
