@@ -11,7 +11,7 @@ target: core-image-tedge-mender
 
 env:
   IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE_ID}${IMAGE_VERSION_SUFFIX}"
+  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}${IMAGE_VERSION_SUFFIX}"
 
 defaults:
   repos:
