@@ -1,0 +1,14 @@
+header:
+    version: 14
+overrides:
+    repos:
+        meta-mender:
+            commit: eb5b14577295ec3a15d3b21602ac4607a0cb3ad8
+        meta-openembedded:
+            commit: 8a75c61cce2aa1d6e5a3597ab8fc5a7e6aeae1e4
+        meta-raspberrypi:
+            commit: 59a6a1b5dd1e21189adec49c61eae04ed3e70338
+        meta-tedge-bin:
+            commit: 1e16ea584a9226cda0878f09d6fc5cd0bf0bae1c
+        poky:
+            commit: 3e73216a32a2b01916eb8c555a41579bd69a47aa
