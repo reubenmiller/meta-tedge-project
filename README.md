@@ -54,6 +54,14 @@ Or you can save the KAS_MACHINE value in your .env file
 KAS_MACHINE=raspberrypi3-64
 ```
 
+### Updating layers
+
+The projects use lock files in order to create reproducable builds by fixing layers to specific commits.
+
+
+update-lock file *args="":
+
+
 ## Tips
 
 ### Updating state-scripts
