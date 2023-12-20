@@ -130,7 +130,7 @@ just publish
 The projects use lock files in order to create reproducible builds by fixing layers to specific commits. Therefore if you need to update them, then run the following task:
 
 ```sh
-update-demo-lock
+just update-demo-lock
 ```
 
 Or you can specify which project file should be updated instead (if you want more control over it).
