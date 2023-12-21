@@ -9,6 +9,6 @@ overrides:
         meta-raspberrypi:
             commit: 59a6a1b5dd1e21189adec49c61eae04ed3e70338
         meta-tedge-bin:
-            commit: 69e5fd12d97d3dfc54c658e1db7f317976758f11
+            commit: 8d2c4286a8eb1bc3cb29b29ed19ac82c2b625943
         poky:
             commit: 755632c2fcab43aa05cdcfa529727064b045073c
