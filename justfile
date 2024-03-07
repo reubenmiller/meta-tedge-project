@@ -24,11 +24,11 @@ update-demo-lock *args="":
 
 # Build project from a given file
 build-project file *args="":
-    python3 -m kas build --update {{file}} {{args}}
+    python3 -m kas build {{file}} {{args}}
 
 # Build demo
 build-demo *args="":
-    python3 -m kas build --update ./projects/demo.yaml {{args}}
+    python3 -m kas build ./projects/demo.yaml {{args}}
 
 # Publish image to Cumulocity IoT (requires go-c8y-cli to be installed)
 publish *args="":
