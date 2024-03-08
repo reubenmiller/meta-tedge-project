@@ -11,6 +11,4 @@ local_conf_header:
     PACKAGE_CLASSES ?= "package_rpm"
     VOLATILE_LOG_DIR = "no"
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-dropbear"
-    # Disable splash as it causes boot and shutdown issues (for reasons unknown), but dmesg shows a lot of panics on startup
-    IMAGE_FEATURES:remove = " splash"
     INIT_MANAGER="systemd"
