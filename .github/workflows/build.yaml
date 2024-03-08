@@ -1,0 +1,53 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+  workflow_dispatch:
+
+env:
+  SSTATE_DIR: /data/yocto/sstate-cache
+  DL_DIR: /data/yocto/downloads
+
+jobs:
+  build:
+    name: Build ${{ matrix.project }} ${{ matrix.machine }}
+    runs-on:
+      - self-hosted
+      - Linux
+      - X64
+      - offsite_yocto
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - demo
+        machine:
+          - raspberrypi3-64
+          - raspberrypi4-64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: taiki-e/install-action@just
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+      - run: pip3 install kas
+      - name: Build
+        run: just build-project projects/${{ matrix.project }}.yaml
+        env:
+          KAS_MACHINE: ${{ matrix.machine }}
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+            name: image_${{ matrix.project }}_${{ matrix.machine }}
+            path: |
+              build/tmp/deploy/images/${{ matrix.machine }}/*${{ matrix.machine }}_*.sdimg.bz2
+              build/tmp/deploy/images/${{ matrix.machine }}/*${{ matrix.machine }}_*.mender
+              build/tmp/deploy/images/${{ matrix.machine }}/*${{ matrix.machine }}_*.manifest
