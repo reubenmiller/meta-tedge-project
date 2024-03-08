@@ -3,4 +3,5 @@
 !/projects/*
 !/conf/
 !/scripts/
+!.github/
 .env
