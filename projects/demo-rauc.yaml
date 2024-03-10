@@ -8,7 +8,7 @@ header:
 
 machine: raspberrypi4-64
 distro: poky
-target: core-image-base
+target: core-image-tedge-rauc
 
 env:
   IMAGE_VERSION_SUFFIX: "_123123"
@@ -44,5 +44,6 @@ repos:
     layers:
       meta-rauc-raspberrypi:
 
-  # meta-tedge-bin:
-  #   url: "https://github.com/thin-edge/meta-tedge-bin"
+  meta-tedge-bin:
+    url: "https://github.com/thin-edge/meta-tedge-bin"
+    branch: kirkstone-rauc
