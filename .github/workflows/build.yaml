@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - demo
+          - tedge-mender
         machine:
           - raspberrypi3-64
           - raspberrypi4-64
