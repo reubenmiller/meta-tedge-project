@@ -48,5 +48,5 @@ repos:
 
   meta-tedge:
     url: "https://github.com/thin-edge/meta-tedge"
-    branch: new-script-installation-system
+    branch: main
     
