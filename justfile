@@ -1,7 +1,8 @@
 set dotenv-load
 
 # Use an auto generated image version suffix (based on date) if one is not provided
-export IMAGE_VERSION_SUFFIX := env_var_or_default("IMAGE_VERSION_SUFFIX", "_" + `date +%Y%m%d.%H%M`)
+export IMAGE_VERSION := env_var_or_default("IMAGE_VERSION", "" + `date +%Y%m%d.%H%M`)
+export IMAGE_VERSION_SUFFIX := "_" + IMAGE_VERSION
 
 # Generate a build version
 generate-version:

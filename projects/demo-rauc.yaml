@@ -11,8 +11,10 @@ distro: poky
 target: core-image-tedge-rauc
 
 env:
+  IMAGE_VERSION: ""
   IMAGE_VERSION_SUFFIX: "_123123"
   BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  RAUC_BUNDLE_VERSION: "${IMAGE_VERSION}"
 
 defaults:
   repos:

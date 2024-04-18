@@ -121,6 +121,14 @@ ls -ltr build/tmp/deploy/images/$KAS_MACHINE/*.sdimg.bz2
 Where KAS_MACHINE should be replaced with the target machine value, e.g. `raspberrypi4-64`.
 
 
+### Rauc
+
+A Rauc OTA image can be build using the following command:
+
+```sh
+just bitbake ./projects/demo-rauc.yaml rauc-update-bundle
+```
+
 ### Publishing the OTA image file to Cumulocity IoT
 
 
