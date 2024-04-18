@@ -12,6 +12,7 @@ target: core-image-tedge-rauc
 
 env:
   IMAGE_VERSION_SUFFIX: "_123123"
+  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
 
 defaults:
   repos:
