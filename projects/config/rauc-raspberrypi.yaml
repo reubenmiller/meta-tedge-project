@@ -14,4 +14,4 @@ local_conf_header:
     SDIMG_ROOTFS_TYPE = "ext4"
     # Note: Image must be a multiple of 4096 for adaptive updates to work!
     IMAGE_ROOTFS_EXTRA_SPACE:append = " + 409600"
-    WKS_FILE = "sdimage-dual-raspberrypi.wks.in"
+    WKS_FILE = "sdimage-dual-raspberrypi-custom.wks.in"
