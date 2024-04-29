@@ -1,7 +1,8 @@
 set dotenv-load
 
 # Use an auto generated image version suffix (based on date) if one is not provided
-export IMAGE_VERSION_SUFFIX := env_var_or_default("IMAGE_VERSION_SUFFIX", "_" + `date +%Y%m%d.%H%M`)
+export IMAGE_VERSION := env_var_or_default("IMAGE_VERSION", "" + `date +%Y%m%d.%H%M`)
+export IMAGE_VERSION_SUFFIX := "_" + IMAGE_VERSION
 
 # Generate a build version
 generate-version:
@@ -25,6 +26,10 @@ update-demo-lock *args="":
 # Build project from a given file
 build-project file *args="":
     python3 -m kas build {{file}} {{args}}
+
+# Run custom bitbake command with a given project
+bitbake file *args="":
+    python3 -m kas shell {{file}} -c 'bitbake {{args}}'
 
 # Build demo
 build-demo *args="":
