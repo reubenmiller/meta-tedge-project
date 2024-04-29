@@ -48,14 +48,10 @@ repos:
     layers:
       meta-rauc-raspberrypi:
 
-  meta-rust:
-    url: "https://github.com/meta-rust/meta-rust"
-    branch: master
-
   meta-tedge:
     url: "https://github.com/thin-edge/meta-tedge.git"
     branch: kirkstone
     layers:
-      meta-tedge:
-      meta-tedge-core:
+      meta-tedge-bin:
+      meta-tedge-common:
       meta-tedge-rauc:

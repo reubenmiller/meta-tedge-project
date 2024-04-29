@@ -2,12 +2,14 @@ header:
     version: 14
 overrides:
     repos:
-        meta-mender:
-            commit: f1e234a7c16898ec93e7161d29a6875153a70400
         meta-openembedded:
             commit: 5a6f7925bd2b885955c942573f70a5594f231563
         meta-raspberrypi:
             commit: 9dc6673d41044f1174551120ce63501421dbcd85
+        meta-rauc:
+            commit: 1ce846097f74acfdd15fef0d64a6fd3eeee3d6f5
+        meta-rauc-community:
+            commit: c3f3ab4c587f51a74a76546ce2813c8be7c6d128
         meta-rust:
             commit: 9611b42d73c7546c3d845da380943a0a4f4205f0
         meta-tedge:

@@ -5,6 +5,8 @@ header:
     - config/common.yaml
     - config/raspberrypi.yaml
     - config/mender-raspberrypi.yaml
+    - config/package-management.yaml
+
 machine: raspberrypi4-64
 distro: poky
 target: core-image-tedge-mender
@@ -47,6 +49,9 @@ repos:
     branch: master
 
   meta-tedge:
-    url: "https://github.com/thin-edge/meta-tedge"
-    branch: main
-    
+    url: "https://github.com/thin-edge/meta-tedge.git"
+    branch: kirkstone
+    layers:
+      meta-tedge:
+      meta-tedge-core:
+      meta-tedge-mender:

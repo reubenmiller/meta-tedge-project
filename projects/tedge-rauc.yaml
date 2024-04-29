@@ -5,6 +5,7 @@ header:
     - config/common.yaml
     - config/raspberrypi.yaml
     - config/rauc-raspberrypi.yaml
+    - config/package-management.yaml
 
 machine: raspberrypi4-64
 distro: poky
@@ -47,6 +48,14 @@ repos:
     layers:
       meta-rauc-raspberrypi:
 
-  meta-tedge-bin:
-    url: "https://github.com/thin-edge/meta-tedge-bin"
-    branch: kirkstone-rauc
+  meta-rust:
+    url: "https://github.com/meta-rust/meta-rust"
+    branch: master
+
+  meta-tedge:
+    url: "https://github.com/thin-edge/meta-tedge.git"
+    branch: kirkstone
+    layers:
+      meta-tedge:
+      meta-tedge-core:
+      meta-tedge-rauc:

@@ -21,7 +21,7 @@ update-lock file *args="":
 
 # Update the lock file used by the main demo (convinience task)
 update-demo-lock *args="":
-    just update-lock ./projects/demo.yaml {{args}}
+    just update-lock ./projects/tedge-rauc.yaml {{args}}
 
 # Build project from a given file
 build-project file *args="":
@@ -33,11 +33,11 @@ bitbake file *args="":
 
 # Build demo
 build-demo *args="":
-    python3 -m kas build ./projects/demo.yaml {{args}}
+    python3 -m kas build ./projects/tedge-rauc.yaml {{args}}
 
 # Publish image to Cumulocity IoT (requires go-c8y-cli to be installed)
 publish *args="":
     {{justfile_directory()}}/scripts/publish-c8y.sh {{args}}
 
-runqemu config="./projects/demo.yaml":
+runqemu config="./projects/tedge-rauc.yaml":
     kas shell {{config}} -c 'runqemu'

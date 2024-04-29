@@ -5,6 +5,7 @@ header:
     - config/common.yaml
     - config/raspberrypi.yaml
     - config/mender-raspberrypi.yaml
+    - config/package-management.yaml
 
 machine: raspberrypi4-64
 distro: poky
@@ -37,11 +38,18 @@ repos:
       meta-networking:
       meta-multimedia:
 
-  meta-mender:
-    url: "https://github.com/mendersoftware/meta-mender"
-    layers:
-      meta-mender-core:
-      meta-mender-raspberrypi:
+  meta-rauc:
+    url: "https://github.com/rauc/meta-rauc.git"
 
-  meta-tedge-bin:
-    url: "https://github.com/thin-edge/meta-tedge-bin"
+  meta-rauc-community:
+    url: "https://github.com/rauc/meta-rauc-community"
+    layers:
+      meta-rauc-raspberrypi:
+
+  meta-tedge:
+    url: "https://github.com/thin-edge/meta-tedge.git"
+    branch: kirkstone
+    layers:
+      meta-tedge:
+      meta-tedge-core:
+      meta-tedge-rauc:
