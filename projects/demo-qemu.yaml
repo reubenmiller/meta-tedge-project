@@ -4,6 +4,7 @@ header:
   includes:
     - config/common.yaml
     - config/mender-qemu.yaml
+    - config/package-management.yaml
 
 machine: qemux86-64
 distro: poky
@@ -39,5 +40,13 @@ repos:
       meta-mender-core:
       meta-mender-qemu:
 
-  meta-tedge-bin:
-    url: "https://github.com/thin-edge/meta-tedge-bin"
+  meta-rust:
+    url: "https://github.com/meta-rust/meta-rust"
+    branch: master
+
+  meta-tedge:
+    url: "https://github.com/thin-edge/meta-tedge.git"
+    layers:
+      meta-tedge:
+      meta-tedge-common:
+      meta-tedge-mender:
