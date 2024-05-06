@@ -4,16 +4,18 @@ header:
   includes:
     - config/common.yaml
     - config/raspberrypi.yaml
-    - config/mender-raspberrypi.yaml
+    - config/rauc-raspberrypi.yaml
     - config/package-management.yaml
 
 machine: raspberrypi4-64
 distro: poky
-target: core-image-tedge-mender
+target: core-image-tedge-rauc
 
 env:
+  IMAGE_VERSION: ""
   IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  RAUC_BUNDLE_VERSION: "${IMAGE_VERSION}"
 
 defaults:
   repos:
@@ -45,6 +47,10 @@ repos:
     url: "https://github.com/rauc/meta-rauc-community"
     layers:
       meta-rauc-raspberrypi:
+
+  meta-rust:
+    url: "https://github.com/meta-rust/meta-rust"
+    branch: master
 
   meta-tedge:
     url: "https://github.com/thin-edge/meta-tedge.git"
