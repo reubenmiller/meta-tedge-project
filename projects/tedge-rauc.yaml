@@ -54,7 +54,6 @@ repos:
 
   meta-tedge:
     url: "https://github.com/thin-edge/meta-tedge.git"
-    branch: kirkstone
     layers:
       meta-tedge:
       meta-tedge-common:
