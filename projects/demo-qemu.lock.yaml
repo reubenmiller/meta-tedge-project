@@ -3,10 +3,10 @@ header:
 overrides:
     repos:
         meta-mender:
-            commit: f1e234a7c16898ec93e7161d29a6875153a70400
+            commit: 60db3bb689c956f7b148480b2c7a02351cbe4dbc
         meta-openembedded:
             commit: 5a6f7925bd2b885955c942573f70a5594f231563
         meta-tedge-bin:
             commit: f65638ad1f687cb4d1fcecc44451c0a7b1bf277b
         poky:
-            commit: 31751bba1c789f15f574773a659b8017d7bcf440
+            commit: 2b21c6009aa6b955e1a0e7312c3c0ad66557681b

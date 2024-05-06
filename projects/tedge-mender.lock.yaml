@@ -3,7 +3,7 @@ header:
 overrides:
     repos:
         meta-mender:
-            commit: f1e234a7c16898ec93e7161d29a6875153a70400
+            commit: 60db3bb689c956f7b148480b2c7a02351cbe4dbc
         meta-openembedded:
             commit: 5a6f7925bd2b885955c942573f70a5594f231563
         meta-raspberrypi:
@@ -11,6 +11,6 @@ overrides:
         meta-rust:
             commit: 9611b42d73c7546c3d845da380943a0a4f4205f0
         meta-tedge:
-            commit: a5426cce211566b728cd47b2f572bcf64af46d15
+            commit: bb1afcd8cf0d13be08019691aefcca733117d0fd
         poky:
-            commit: 31751bba1c789f15f574773a659b8017d7bcf440
+            commit: 2b21c6009aa6b955e1a0e7312c3c0ad66557681b
