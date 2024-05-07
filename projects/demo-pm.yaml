@@ -9,7 +9,7 @@ header:
 
 machine: raspberrypi4-64
 distro: poky
-target: core-image-tedge-rauc
+target: rauc-update-bundle
 
 env:
   IMAGE_VERSION: ""
