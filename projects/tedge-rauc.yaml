@@ -5,10 +5,11 @@ header:
     - config/common.yaml
     - config/raspberrypi.yaml
     - config/rauc-raspberrypi.yaml
+    - config/package-management.yaml
 
 machine: raspberrypi4-64
 distro: poky
-target: core-image-tedge-rauc
+target: rauc-update-bundle
 
 env:
   IMAGE_VERSION: ""
@@ -47,6 +48,13 @@ repos:
     layers:
       meta-rauc-raspberrypi:
 
-  meta-tedge-bin:
-    url: "https://github.com/thin-edge/meta-tedge-bin"
-    branch: kirkstone-rauc
+  meta-rust:
+    url: "https://github.com/meta-rust/meta-rust"
+    branch: master
+
+  meta-tedge:
+    url: "https://github.com/thin-edge/meta-tedge.git"
+    layers:
+      meta-tedge:
+      meta-tedge-common:
+      meta-tedge-rauc:

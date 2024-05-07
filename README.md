@@ -68,7 +68,7 @@ To start off, you will need to install the project and Yocto dependencies.
     **Ubuntu 20.04 LTS**
 
     ```
-    sudo apt install file gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
+    sudo apt install file gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev xterm python3-subunit mesa-common-dev zstd liblz4-tool
     ```
 
     If you having troubles please consult the [Yocto Documentation](https://docs.yoctoproject.org/kirkstone/brief-yoctoprojectqs/index.html#building-your-image)
@@ -120,15 +120,6 @@ ls -ltr build/tmp/deploy/images/$KAS_MACHINE/*.sdimg.bz2
 
 Where KAS_MACHINE should be replaced with the target machine value, e.g. `raspberrypi4-64`.
 
-
-### Rauc
-
-A Rauc OTA image can be build using the following command:
-
-```sh
-just bitbake ./projects/demo-rauc.yaml rauc-update-bundle
-```
-
 ### Publishing the OTA image file to Cumulocity IoT
 
 
@@ -152,7 +143,7 @@ just update-demo-lock
 Or you can specify which project file should be updated instead (if you want more control over it).
 
 ```sh
-just update-lock ./projects/demo-pm.yaml
+just update-lock ./projects/tedge-rauc.yaml
 ```
 
 ## Tips

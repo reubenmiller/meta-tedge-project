@@ -10,8 +10,6 @@ overrides:
             commit: 1ce846097f74acfdd15fef0d64a6fd3eeee3d6f5
         meta-rauc-community:
             commit: c3f3ab4c587f51a74a76546ce2813c8be7c6d128
-        meta-rust:
-            commit: 9611b42d73c7546c3d845da380943a0a4f4205f0
         meta-tedge:
             commit: bb1afcd8cf0d13be08019691aefcca733117d0fd
         poky:

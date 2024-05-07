@@ -3,16 +3,19 @@ header:
   version: 14
   includes:
     - config/common.yaml
-    - config/mender-qemu.yaml
+    - config/raspberrypi.yaml
+    - config/rauc-raspberrypi.yaml
     - config/package-management.yaml
 
-machine: qemux86-64
+machine: raspberrypi4-64
 distro: poky
-target: core-image-tedge-mender
+target: rauc-update-bundle
 
 env:
+  IMAGE_VERSION: ""
   IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  RAUC_BUNDLE_VERSION: "${IMAGE_VERSION}"
 
 defaults:
   repos:
@@ -26,6 +29,9 @@ repos:
       meta-poky:
       meta-yocto-bsp:
 
+  meta-raspberrypi:
+    url: "https://github.com/agherzan/meta-raspberrypi.git"
+
   meta-openembedded:
     url: "https://git.openembedded.org/meta-openembedded"
     layers:
@@ -34,19 +40,17 @@ repos:
       meta-networking:
       meta-multimedia:
 
-  meta-mender:
-    url: "https://github.com/mendersoftware/meta-mender"
-    layers:
-      meta-mender-core:
-      meta-mender-qemu:
+  meta-rauc:
+    url: "https://github.com/rauc/meta-rauc.git"
 
-  meta-rust:
-    url: "https://github.com/meta-rust/meta-rust"
-    branch: master
+  meta-rauc-community:
+    url: "https://github.com/rauc/meta-rauc-community"
+    layers:
+      meta-rauc-raspberrypi:
 
   meta-tedge:
     url: "https://github.com/thin-edge/meta-tedge.git"
     layers:
-      meta-tedge:
+      meta-tedge-bin:
       meta-tedge-common:
-      meta-tedge-mender:
+      meta-tedge-rauc:
