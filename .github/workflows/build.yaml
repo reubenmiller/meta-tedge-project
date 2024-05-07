@@ -27,10 +27,23 @@ jobs:
       fail-fast: false
       matrix:
         project:
+          - tedge-rauc
           - tedge-mender
         machine:
           - raspberrypi3-64
           - raspberrypi4-64
+        include:
+          - project: tedge-rauc
+            image_name: core-image-tedge-rauc
+            image_ext: "wic.bz2"
+            update_ext: "raucb"
+            manifest_ext: "manifest"
+
+          - project: tedge-mender
+            image_name: core-image-tedge-mender
+            image_ext: "sdimg.bz2"
+            update_ext: "mender"
+            manifest_ext: "manifest"
 
     steps:
       - name: Checkout
@@ -55,8 +68,8 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-            name: image_${{ matrix.project }}_${{ matrix.machine }}
+            name: ${{ matrix.image_name }}_${{ matrix.machine }}
             path: |
-              build/tmp/deploy/images/${{ matrix.machine }}/*${{ matrix.machine }}_*.sdimg.bz2
-              build/tmp/deploy/images/${{ matrix.machine }}/*${{ matrix.machine }}_*.mender
-              build/tmp/deploy/images/${{ matrix.machine }}/*${{ matrix.machine }}_*.manifest
+              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}_*.${{ matrix.image_ext }}
+              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}_*.${{ matrix.update_ext }}
+              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}_*.${{ matrix.manifest_ext }}
