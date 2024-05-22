@@ -3,7 +3,7 @@ header:
 overrides:
     repos:
         meta-openembedded:
-            commit: 5a6f7925bd2b885955c942573f70a5594f231563
+            commit: 70b217ecc812296d98e1aa027a7d182a8019dded
         meta-raspberrypi:
             commit: 9dc6673d41044f1174551120ce63501421dbcd85
         meta-rauc:
@@ -13,4 +13,4 @@ overrides:
         meta-tedge:
             commit: 8a5a122c6661f9dcb18b6994d927b25f2ee8c06e
         poky:
-            commit: 2b21c6009aa6b955e1a0e7312c3c0ad66557681b
+            commit: e575d02196b0013c25f8064e4dbe3fc2a0ef72d0
