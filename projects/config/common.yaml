@@ -8,8 +8,9 @@ bblayers_conf_header:
 
 local_conf_header:
   meta-common: |
-    PACKAGE_CLASSES ?= "package_rpm"
+    PACKAGE_CLASSES ?= "package_deb"
     VOLATILE_LOG_DIR = "no"
+    IMAGE_INSTALL:append = " gnupg"
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-dropbear"
     INIT_MANAGER="systemd"
 
