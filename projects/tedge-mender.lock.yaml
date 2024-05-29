@@ -5,12 +5,12 @@ overrides:
         meta-mender:
             commit: f5455b66f259a49d78ca96f0730b57f0f6b3a6a5
         meta-openembedded:
-            commit: 70b217ecc812296d98e1aa027a7d182a8019dded
+            commit: 0560b848996a0feb410a8cd8ca07c60fe2f3b5bc
         meta-raspberrypi:
             commit: 9dc6673d41044f1174551120ce63501421dbcd85
         meta-rust:
             commit: 9611b42d73c7546c3d845da380943a0a4f4205f0
         meta-tedge:
-            commit: 8a5a122c6661f9dcb18b6994d927b25f2ee8c06e
+            commit: 52f4a50d993f999ed54b2d2c328bc124a03bd4c4
         poky:
-            commit: e575d02196b0013c25f8064e4dbe3fc2a0ef72d0
+            commit: db3cb6f1138d1765fb64d2415083c8503f318a5f
