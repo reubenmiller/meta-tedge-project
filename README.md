@@ -45,7 +45,7 @@ It is highly recommended to use **Ubuntu 20.04 LTS** for your build (host) machi
 #### Minimum requirements
 
 * At least 100 GB free disk space (however ~500GB is recommended as you don't want to run out and have to set all of this up again)
-* x86_64 Machine if you have it, however arm64/aarch64 can also work 
+* x86_64 Machine (arm64/aarch64 is not supported by Yocto)
 * Lots of time (first build can take > 6 hours...welcome to the world of yocto)
 
 
@@ -67,7 +67,7 @@ To start off, you will need to install the project and Yocto dependencies.
 
     **Ubuntu 20.04 LTS**
 
-    ```
+    ```sh
     sudo apt install file gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev xterm python3-subunit mesa-common-dev zstd liblz4-tool
     ```
 
@@ -114,8 +114,8 @@ KAS_MACHINE=raspberrypi3-64
 
 The bootstrap image (which you can flash to an SD card) is located below:
 
-```
-ls -ltr build/tmp/deploy/images/$KAS_MACHINE/*.sdimg.bz2
+```sh
+ls -ltr "build/tmp/deploy/images/$KAS_MACHINE"/*.bz2
 ```
 
 Where KAS_MACHINE should be replaced with the target machine value, e.g. `raspberrypi4-64`.
