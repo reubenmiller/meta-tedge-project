@@ -73,15 +73,6 @@ To start off, you will need to install the project and Yocto dependencies.
 
     If you having troubles please consult the [Yocto Documentation](https://docs.yoctoproject.org/kirkstone/brief-yoctoprojectqs/index.html#building-your-image)
 
-5. Install git-lfs dependency (this will be removed in the future)
-
-    ```sh
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-    sudo apt-get install git-lfs
-    ```
-
-    If you have any problems with the installation of git-lfs, please check the [official git-lfs instructions for linux](https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md).
-
 **Reducing build times**
 
 You can configure a common **sstate cache** and download folder to share amongst different projects to speed up the build times.
