@@ -41,3 +41,7 @@ publish *args="":
 
 runqemu config="./projects/tedge-rauc.yaml":
     kas shell {{config}} -c 'runqemu'
+
+# Update the lock files of all projects
+update-all-locks:
+    find ./projects -maxdepth 1 \( -name "*.yaml" -a ! -name "*.lock.*" \) -exec just update-lock {} \;
