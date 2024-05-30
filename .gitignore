@@ -1,7 +1,3 @@
-/*/
-!/projects/
-!/projects/*
-!/conf/
-!/scripts/
-!.github/
+_kas/
+build/
 .env

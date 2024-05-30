@@ -146,3 +146,9 @@ If you run into unexpected build errors, or the image just doesn't include the e
 ```sh
 just clean
 ```
+
+Or if you are still having problems, try removing all of the temp folders (build and the repositories)
+
+```sh
+just clean-all
+```

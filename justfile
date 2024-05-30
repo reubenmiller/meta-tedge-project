@@ -1,5 +1,10 @@
 set dotenv-load
 
+# Use custom work_dir for kas, so the folder can be added to the gitignore list
+# but keep the build dir under <project>/build
+export KAS_WORK_DIR := env_var_or_default("KAS_WORK_DIR", "_kas")
+export KAS_BUILD_DIR := env_var_or_default("KAS_BUILD_DIR", justfile_directory() + "/build")
+
 # Use an auto generated image version suffix (based on date) if one is not provided
 export IMAGE_VERSION := env_var_or_default("IMAGE_VERSION", "" + `date +%Y%m%d.%H%M`)
 export IMAGE_VERSION_SUFFIX := "_" + IMAGE_VERSION
@@ -12,6 +17,12 @@ generate-version:
 clean:
     @echo "Cleaning tmp folder"
     rm -rf build/tmp
+
+# Clean all build and yocto folders
+clean-all:
+    @echo "Cleaning all local yocto folders"
+    rm -rf build
+    rm -rf _kas
 
 # Update project lock file to lock to specific commit per layer
 # You need to run this if you are working on a branch and would like up-to-date
