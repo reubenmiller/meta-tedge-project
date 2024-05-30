@@ -97,13 +97,13 @@ DL_DIR=/data/yocto/downloads
 
 ### Building an image
 
-Build the demo image (which includes thin-edge.io and mender standalone)
+Build an image which includes thin-edge.io and [RAUC](https://rauc.readthedocs.io/en/latest/):
 
 **Raspberry Pi**
 
 ```sh
-KAS_MACHINE=raspberrypi3-64 just build-demo
-KAS_MACHINE=raspberrypi4-64 just build-demo
+KAS_MACHINE=raspberrypi3-64 just build-project ./projects/tedge-rauc.yaml
+KAS_MACHINE=raspberrypi4-64 just build-project ./projects/tedge-rauc.yaml
 ```
 
 Or you can save the KAS_MACHINE value in your .env file
@@ -137,7 +137,7 @@ just publish
 The projects use lock files in order to create reproducible builds by fixing layers to specific commits. Therefore if you need to update them, then run the following task:
 
 ```sh
-just update-demo-lock
+just update-all-locks
 ```
 
 Or you can specify which project file should be updated instead (if you want more control over it).
