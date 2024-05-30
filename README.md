@@ -45,7 +45,7 @@ It is highly recommended to use **Ubuntu 20.04 LTS** for your build (host) machi
 #### Minimum requirements
 
 * At least 100 GB free disk space (however ~500GB is recommended as you don't want to run out and have to set all of this up again)
-* x86_64 Machine if you have it, however arm64/aarch64 can also work 
+* x86_64 Machine (arm64/aarch64 is not supported by Yocto)
 * Lots of time (first build can take > 6 hours...welcome to the world of yocto)
 
 
@@ -67,20 +67,11 @@ To start off, you will need to install the project and Yocto dependencies.
 
     **Ubuntu 20.04 LTS**
 
-    ```
+    ```sh
     sudo apt install file gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev xterm python3-subunit mesa-common-dev zstd liblz4-tool
     ```
 
     If you having troubles please consult the [Yocto Documentation](https://docs.yoctoproject.org/kirkstone/brief-yoctoprojectqs/index.html#building-your-image)
-
-5. Install git-lfs dependency (this will be removed in the future)
-
-    ```sh
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-    sudo apt-get install git-lfs
-    ```
-
-    If you have any problems with the installation of git-lfs, please check the [official git-lfs instructions for linux](https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md).
 
 **Reducing build times**
 
@@ -97,13 +88,13 @@ DL_DIR=/data/yocto/downloads
 
 ### Building an image
 
-Build the demo image (which includes thin-edge.io and mender standalone)
+Build an image which includes thin-edge.io and [RAUC](https://rauc.readthedocs.io/en/latest/):
 
 **Raspberry Pi**
 
 ```sh
-KAS_MACHINE=raspberrypi3-64 just build-demo
-KAS_MACHINE=raspberrypi4-64 just build-demo
+KAS_MACHINE=raspberrypi3-64 just build-project ./projects/tedge-rauc.yaml
+KAS_MACHINE=raspberrypi4-64 just build-project ./projects/tedge-rauc.yaml
 ```
 
 Or you can save the KAS_MACHINE value in your .env file
@@ -114,8 +105,8 @@ KAS_MACHINE=raspberrypi3-64
 
 The bootstrap image (which you can flash to an SD card) is located below:
 
-```
-ls -ltr build/tmp/deploy/images/$KAS_MACHINE/*.sdimg.bz2
+```sh
+ls -ltr "build/tmp/deploy/images/$KAS_MACHINE"/*.bz2
 ```
 
 Where KAS_MACHINE should be replaced with the target machine value, e.g. `raspberrypi4-64`.
@@ -137,7 +128,7 @@ just publish
 The projects use lock files in order to create reproducible builds by fixing layers to specific commits. Therefore if you need to update them, then run the following task:
 
 ```sh
-just update-demo-lock
+just update-all-locks
 ```
 
 Or you can specify which project file should be updated instead (if you want more control over it).
@@ -154,4 +145,10 @@ If you run into unexpected build errors, or the image just doesn't include the e
 
 ```sh
 just clean
+```
+
+Or if you are still having problems, try removing all of the temp folders (build and the repositories)
+
+```sh
+just clean-all
 ```
