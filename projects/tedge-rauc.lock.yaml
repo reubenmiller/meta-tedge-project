@@ -3,16 +3,16 @@ header:
 overrides:
     repos:
         meta-openembedded:
-            commit: 0560b848996a0feb410a8cd8ca07c60fe2f3b5bc
+            commit: 4052c97dc83d0c88fc277d6fc1815e0699020daa
         meta-raspberrypi:
-            commit: 9dc6673d41044f1174551120ce63501421dbcd85
+            commit: d7544f35756d87834e8b4bf3e3e733c771d380ae
         meta-rauc:
-            commit: 1ce846097f74acfdd15fef0d64a6fd3eeee3d6f5
+            commit: 3fb8b639bbed639a98f4cefd383c9a880164eb5c
         meta-rauc-community:
             commit: c3f3ab4c587f51a74a76546ce2813c8be7c6d128
         meta-rust:
-            commit: 9611b42d73c7546c3d845da380943a0a4f4205f0
+            commit: a5136be2ba408af1cc8afcde1c8e3d787dadd934
         meta-tedge:
-            commit: 6b434ba1d0b32959d11ac2da61f30cab78df61f6
+            commit: 6f0c6beb7aa21e7f078fc4a6bb5610c2b1dc157e
         poky:
-            commit: db3cb6f1138d1765fb64d2415083c8503f318a5f
+            commit: 322d4df8cb51b531a998de92298914a6710d7677
