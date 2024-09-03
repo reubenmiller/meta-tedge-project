@@ -14,7 +14,8 @@ target: rauc-update-bundle
 env:
   IMAGE_VERSION: ""
   IMAGE_VERSION_SUFFIX: "_123123"
-  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  IMAGE_RELEASE_SUFFIX: "kirkstone"
+  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}-${IMAGE_RELEASE_SUFFIX}${IMAGE_VERSION_SUFFIX}"
   RAUC_BUNDLE_VERSION: "${IMAGE_VERSION}"
 
 defaults:

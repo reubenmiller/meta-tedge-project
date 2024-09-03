@@ -3,17 +3,17 @@ header:
   version: 14
   includes:
     - config/common.yaml
-    - config/raspberrypi.yaml
-    - config/mender-raspberrypi.yaml
+    - config/mender-qemu.yaml
     - config/package-management.yaml
 
-machine: raspberrypi4-64
+machine: qemux86-64
 distro: poky
 target: core-image-tedge-mender
 
 env:
   IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  IMAGE_RELEASE_SUFFIX: "kirkstone"
+  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}-${IMAGE_RELEASE_SUFFIX}${IMAGE_VERSION_SUFFIX}"
 
 defaults:
   repos:
@@ -27,9 +27,6 @@ repos:
       meta-poky:
       meta-yocto-bsp:
 
-  meta-raspberrypi:
-    url: "https://github.com/agherzan/meta-raspberrypi.git"
-
   meta-openembedded:
     url: "https://git.openembedded.org/meta-openembedded"
     layers:
@@ -42,7 +39,7 @@ repos:
     url: "https://github.com/mendersoftware/meta-mender"
     layers:
       meta-mender-core:
-      meta-mender-raspberrypi:
+      meta-mender-qemu:
 
   meta-rust:
     url: "https://github.com/meta-rust/meta-rust"
