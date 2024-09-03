@@ -17,7 +17,7 @@ env:
 jobs:
   build:
     if: github.event_name != 'pull_request' || github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ci')
-    name: Build ${{ matrix.project }} ${{ matrix.machine }}
+    name: Build ${{ matrix.project }} ${{ matrix.release }} ${{ matrix.machine }}
     runs-on:
       - self-hosted
       - Linux
@@ -26,25 +26,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project:
-          - tedge-rauc
-          - tedge-mender
-        machine:
-          - raspberrypi3-64
-          - raspberrypi4-64
+        release: [kirkstone, scarthgap]
+        project: [tedge-rauc, tedge-bin-rauc, tedge-mender, tedge-bin-mender]
+        machine: [raspberrypi3-64, raspberrypi4-64]
         include:
-          - project: tedge-rauc
+          - project: [tedge-rauc, tedge-bin-rauc]
             image_name: core-image-tedge-rauc
             image_ext: "wic.bz2"
             update_ext: "raucb"
             manifest_ext: "manifest"
 
-          - project: tedge-mender
+          - project: [tedge-mender, tedge-bin-mender]
             image_name: core-image-tedge-mender
             image_ext: "sdimg.bz2"
             update_ext: "mender"
             manifest_ext: "manifest"
-
+      exclude:
+        - release: kirkstone
+          project: [tedge-bin-rauc, tedge-bin-mender]
+        - release: scarthgap
+          project: [tedge-rauc, tedge-mender]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -62,14 +63,14 @@ jobs:
         if: ${{ !startsWith(runner.name, 'tedge') }}
 
       - name: Build
-        run: just build-project projects/${{ matrix.project }}.yaml
+        run: just build-project projects/${{ matrix.release }}/${{ matrix.project }}.yaml
         env:
           KAS_MACHINE: ${{ matrix.machine }}
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-            name: ${{ matrix.image_name }}_${{ matrix.machine }}
+            name: ${{ matrix.image_name }}_${{ matrix.release }}_${{ matrix.machine }}
             path: |
-              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}_*.${{ matrix.image_ext }}
-              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}_*.${{ matrix.update_ext }}
-              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}_*.${{ matrix.manifest_ext }}
+              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}*${{ matrix.release }}_*.${{ matrix.image_ext }}
+              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}*${{ matrix.release }}_*.${{ matrix.update_ext }}
+              build/tmp/deploy/images/${{ matrix.machine }}/${{ matrix.image_name }}*${{ matrix.machine }}*${{ matrix.release }}_*.${{ matrix.manifest_ext }}
