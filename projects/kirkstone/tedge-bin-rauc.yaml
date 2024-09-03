@@ -2,10 +2,10 @@
 header:
   version: 14
   includes:
-    - config/common.yaml
-    - config/raspberrypi.yaml
-    - config/rauc-raspberrypi.yaml
-    - config/package-management.yaml
+    - projects/config/common.yaml
+    - projects/config/raspberrypi.yaml
+    - projects/config/rauc-raspberrypi.yaml
+    - projects/config/package-management.yaml
 
 machine: raspberrypi4-64
 distro: poky
