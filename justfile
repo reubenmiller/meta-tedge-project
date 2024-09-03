@@ -47,9 +47,9 @@ bitbake file *args="": init
 publish *args="":
     {{justfile_directory()}}/scripts/publish-c8y.sh {{args}}
 
-runqemu config="./projects/tedge-rauc.yaml":
+runqemu config="./projects/kirkstone/tedge-rauc.yaml":
     kas shell {{config}} -c 'runqemu'
 
 # Update the lock files of all projects
 update-all-locks:
-    find ./projects -maxdepth 1 \( -name "*.yaml" -a ! -name "*.lock.*" \) -exec just update-lock {} \;
+    find ./projects/kirkstone ./projects/scarthgap -maxdepth 1 \( -name "*.yaml" -a ! -name "*.lock.*" \) -exec just update-lock {} \;
