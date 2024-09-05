@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/66261547b75885786777a0b9c8a4400ab81d432e/kas/schema-kas.json
+header:
+  version: 14
+  includes:
+    - projects/config/common.yaml
+    - projects/config/mender-qemu.yaml
+    - projects/config/package-management.yaml
+
+machine: qemux86-64
+distro: poky
+target: core-image-tedge-mender
+
+env:
+  IMAGE_VERSION_SUFFIX: "_123123"
+  IMAGE_RELEASE_SUFFIX: "kirkstone"
+  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}-${IMAGE_RELEASE_SUFFIX}${IMAGE_VERSION_SUFFIX}"
+
+defaults:
+  repos:
+    branch: kirkstone
+
+repos:
+  poky:
+    url: "https://git.yoctoproject.org/git/poky"
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+
+  meta-openembedded:
+    url: "https://git.openembedded.org/meta-openembedded"
+    layers:
+      meta-oe:
+      meta-python:
+      meta-networking:
+      meta-multimedia:
+
+  meta-mender:
+    url: "https://github.com/mendersoftware/meta-mender"
+    layers:
+      meta-mender-core:
+      meta-mender-qemu:
+
+  meta-rust:
+    url: "https://github.com/meta-rust/meta-rust"
+    branch: master
+
+  meta-tedge:
+    url: "https://github.com/thin-edge/meta-tedge.git"
+    layers:
+      meta-tedge:
+      meta-tedge-common:
+      meta-tedge-mender:

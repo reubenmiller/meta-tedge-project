@@ -93,8 +93,8 @@ Build an image which includes thin-edge.io and [RAUC](https://rauc.readthedocs.i
 **Raspberry Pi**
 
 ```sh
-KAS_MACHINE=raspberrypi3-64 just build-project ./projects/tedge-rauc.yaml
-KAS_MACHINE=raspberrypi4-64 just build-project ./projects/tedge-rauc.yaml
+KAS_MACHINE=raspberrypi3-64 just build-project ./projects/kirkstone/tedge-rauc.yaml
+KAS_MACHINE=raspberrypi4-64 just build-project ./projects/scarthgap/tedge-rauc.yaml
 ```
 
 Or you can save the KAS_MACHINE value in your .env file
@@ -134,7 +134,7 @@ just update-all-locks
 Or you can specify which project file should be updated instead (if you want more control over it).
 
 ```sh
-just update-lock ./projects/tedge-rauc.yaml
+just update-lock ./projects/kirkstone/tedge-rauc.yaml
 ```
 
 ## Tips

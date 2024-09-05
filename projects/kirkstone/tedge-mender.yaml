@@ -2,20 +2,19 @@
 header:
   version: 14
   includes:
-    - config/common.yaml
-    - config/raspberrypi.yaml
-    - config/rauc-raspberrypi.yaml
-    - config/package-management.yaml
+    - projects/config/common.yaml
+    - projects/config/raspberrypi.yaml
+    - projects/config/mender-raspberrypi.yaml
+    - projects/config/package-management.yaml
 
 machine: raspberrypi4-64
 distro: poky
-target: rauc-update-bundle
+target: core-image-tedge-mender
 
 env:
-  IMAGE_VERSION: ""
   IMAGE_VERSION_SUFFIX: "_123123"
-  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
-  RAUC_BUNDLE_VERSION: "${IMAGE_VERSION}"
+  IMAGE_RELEASE_SUFFIX: "kirkstone"
+  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}-${IMAGE_RELEASE_SUFFIX}${IMAGE_VERSION_SUFFIX}"
 
 defaults:
   repos:
@@ -40,13 +39,11 @@ repos:
       meta-networking:
       meta-multimedia:
 
-  meta-rauc:
-    url: "https://github.com/rauc/meta-rauc.git"
-
-  meta-rauc-community:
-    url: "https://github.com/rauc/meta-rauc-community"
+  meta-mender:
+    url: "https://github.com/mendersoftware/meta-mender"
     layers:
-      meta-rauc-raspberrypi:
+      meta-mender-core:
+      meta-mender-raspberrypi:
 
   meta-rust:
     url: "https://github.com/meta-rust/meta-rust"
@@ -57,4 +54,4 @@ repos:
     layers:
       meta-tedge:
       meta-tedge-common:
-      meta-tedge-rauc:
+      meta-tedge-mender:

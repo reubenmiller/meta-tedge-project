@@ -2,21 +2,23 @@
 header:
   version: 14
   includes:
-    - config/common.yaml
-    - config/mender-qemu.yaml
-    - config/package-management.yaml
+    - projects/config/common.yaml
+    - projects/config/raspberrypi.yaml
+    - projects/config/mender-raspberrypi.yaml
+    - projects/config/package-management.yaml
 
-machine: qemux86-64
+machine: raspberrypi4-64
 distro: poky
 target: core-image-tedge-mender
 
 env:
   IMAGE_VERSION_SUFFIX: "_123123"
-  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  IMAGE_RELEASE_SUFFIX: "scarthgap"
+  MENDER_ARTIFACT_NAME: "core-image-tedge-mender-${MACHINE}-${IMAGE_RELEASE_SUFFIX}${IMAGE_VERSION_SUFFIX}"
 
 defaults:
   repos:
-    branch: kirkstone
+    branch: scarthgap
 
 repos:
   poky:
@@ -25,6 +27,9 @@ repos:
       meta:
       meta-poky:
       meta-yocto-bsp:
+
+  meta-raspberrypi:
+    url: "https://github.com/agherzan/meta-raspberrypi.git"
 
   meta-openembedded:
     url: "https://git.openembedded.org/meta-openembedded"
@@ -38,15 +43,19 @@ repos:
     url: "https://github.com/mendersoftware/meta-mender"
     layers:
       meta-mender-core:
-      meta-mender-qemu:
 
-  meta-rust:
-    url: "https://github.com/meta-rust/meta-rust"
-    branch: master
-
+  meta-mender-community:
+    url: "https://github.com/mendersoftware/meta-mender-community"
+    layers:
+      meta-mender-raspberrypi:
+      
   meta-tedge:
     url: "https://github.com/thin-edge/meta-tedge.git"
     layers:
-      meta-tedge:
+      meta-tedge-bin:
       meta-tedge-common:
       meta-tedge-mender:
+
+  meta-lts-mixins:
+    url: "git://git.yoctoproject.org/meta-lts-mixins"
+    branch: scarthgap/u-boot
