@@ -30,22 +30,44 @@ jobs:
         project: [tedge-rauc, tedge-bin-rauc, tedge-mender, tedge-bin-mender]
         machine: [raspberrypi3-64, raspberrypi4-64]
         include:
-          - project: [tedge-rauc, tedge-bin-rauc]
+          - project: tedge-rauc
             image_name: core-image-tedge-rauc
             image_ext: "wic.bz2"
             update_ext: "raucb"
             manifest_ext: "manifest"
 
-          - project: [tedge-mender, tedge-bin-mender]
+          - project: tedge-bin-rauc
+            image_name: core-image-tedge-rauc
+            image_ext: "wic.bz2"
+            update_ext: "raucb"
+            manifest_ext: "manifest"
+
+          - project: tedge-mender
+            image_name: core-image-tedge-mender
+            image_ext: "sdimg.bz2"
+            update_ext: "mender"
+            manifest_ext: "manifest"
+
+          - project: tedge-bin-mender
             image_name: core-image-tedge-mender
             image_ext: "sdimg.bz2"
             update_ext: "mender"
             manifest_ext: "manifest"
         exclude:
+          # For kirkstone build tedge from source
           - release: kirkstone
-            project: [tedge-bin-rauc, tedge-bin-mender]
+            project: tedge-bin-rauc
+
+          - release: kirkstone
+            project: tedge-bin-mender
+
+          # For scarthgap use pre-built binaries (due to issue with Rust MSRV)
           - release: scarthgap
-            project: [tedge-rauc, tedge-mender]
+            project: tedge-rauc
+
+          - release: scarthgap
+            project: tedge-mender
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
