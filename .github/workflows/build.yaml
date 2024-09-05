@@ -41,11 +41,11 @@ jobs:
             image_ext: "sdimg.bz2"
             update_ext: "mender"
             manifest_ext: "manifest"
-      exclude:
-        - release: kirkstone
-          project: [tedge-bin-rauc, tedge-bin-mender]
-        - release: scarthgap
-          project: [tedge-rauc, tedge-mender]
+        exclude:
+          - release: kirkstone
+            project: [tedge-bin-rauc, tedge-bin-mender]
+          - release: scarthgap
+            project: [tedge-rauc, tedge-mender]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
