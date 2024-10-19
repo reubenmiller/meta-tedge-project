@@ -4,13 +4,12 @@ header:
   includes:
     - config/common.yaml
     - config/starfive-vision2.yaml
-    # - config/rauc-raspberrypi.yaml
-    - config/package-management.yaml
-    # - config/read-only.yaml
+    # - config/rauc-starfive-vision2.yaml
+    - config/package-management.yaml  
 
 machine: starfive-visionfive2
 distro: poky
-target: core-image-minimal
+target: core-image-tedge
 
 env:
   IMAGE_VERSION: ""
@@ -39,9 +38,9 @@ repos:
     layers:
       meta-oe:
       meta-python:
-      meta-filesystems:
       meta-networking:
       meta-multimedia:
+      meta-filesystems:
       meta-gnome:
       meta-xfce:
       meta-webserver:
@@ -57,14 +56,14 @@ repos:
   meta-clang:
     url: https://github.com/kraj/meta-clang
 
-  meta-rust:
-    url: "https://github.com/meta-rust/meta-rust"
-    branch: master
+  # meta-rust:
+  #   url: "https://github.com/meta-rust/meta-rust"
+  #   branch: master
 
   meta-tedge:
     url: "https://github.com/reubenmiller/meta-tedge.git"
-    branch: fix-readonly-support
+    branch: add-riscv64-binary
     layers:
-      meta-tedge:
+      meta-tedge-bin:
       meta-tedge-common:
       # meta-tedge-rauc:

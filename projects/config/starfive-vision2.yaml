@@ -3,6 +3,5 @@ header:
   version: 1
 
 local_conf_header:
-  meta-raspberrypi: |
+  meta-starfive-vision2: |
     HOSTTOOLS_NONFATAL:append = " ssh"
-    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
