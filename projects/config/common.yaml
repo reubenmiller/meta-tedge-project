@@ -11,7 +11,7 @@ local_conf_header:
     PACKAGE_CLASSES ?= "package_deb"
     VOLATILE_LOG_DIR = "no"
     IMAGE_INSTALL:append = " gnupg"
-    EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-dropbear"
+    #EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-dropbear"
     INIT_MANAGER="systemd"
 
     # Add /etc/build file with information about build

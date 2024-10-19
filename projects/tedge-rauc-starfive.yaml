@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/66261547b75885786777a0b9c8a4400ab81d432e/kas/schema-kas.json
+header:
+  version: 14
+  includes:
+    - config/common.yaml
+    - config/starfive-vision2.yaml
+    # - config/rauc-raspberrypi.yaml
+    - config/package-management.yaml
+    # - config/read-only.yaml
+
+machine: starfive-visionfive2
+distro: poky
+target: core-image-minimal
+
+env:
+  IMAGE_VERSION: ""
+  IMAGE_VERSION_SUFFIX: "_123123"
+  BUNDLE_NAME: "core-image-tedge-rauc-${MACHINE}${IMAGE_VERSION_SUFFIX}"
+  RAUC_BUNDLE_VERSION: "${IMAGE_VERSION}"
+
+defaults:
+  repos:
+    branch: kirkstone
+
+repos:
+  poky:
+    url: "https://git.yoctoproject.org/git/poky"
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+
+  meta-starfive:
+    url: "https://github.com/starfive-tech/meta-starfive"
+    branch: starfive-kirkstone
+
+  meta-openembedded:
+    url: "https://git.openembedded.org/meta-openembedded"
+    layers:
+      meta-oe:
+      meta-python:
+      meta-filesystems:
+      meta-networking:
+      meta-multimedia:
+      meta-gnome:
+      meta-xfce:
+      meta-webserver:
+
+  # meta-rauc:
+  #   url: "https://github.com/rauc/meta-rauc.git"
+
+  # meta-rauc-community:
+  #   url: "https://github.com/rauc/meta-rauc-community"
+  #   layers:
+  #     meta-rauc-raspberrypi:
+
+  meta-clang:
+    url: https://github.com/kraj/meta-clang
+
+  meta-rust:
+    url: "https://github.com/meta-rust/meta-rust"
+    branch: master
+
+  meta-tedge:
+    url: "https://github.com/reubenmiller/meta-tedge.git"
+    branch: fix-readonly-support
+    layers:
+      meta-tedge:
+      meta-tedge-common:
+      # meta-tedge-rauc:
