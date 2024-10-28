@@ -7,6 +7,11 @@ local_conf_header:
     IMAGE_FEATURES:append = " read-only-rootfs"
     IMAGE_FEATURES:remove = " package-management"
 
+    # Note: /data/tedge will be created when the image is used as /data does not exist at build time
+    TEDGE_CONFIG_DIR = "/etc/tedge-default"
+    TEDGE_CONFIG_SYMLINK = "/etc/tedge"
+    TEDGE_CONFIG_SYMLINK_SRC = "/data/tedge"
+
     # `has_journal` interferes with the checksum of the image when viewed from the block device. Oddly
     # enough it is not present on disk, IOW, when the image is mounted readonly, the physical checksum
     # on disk, and the checksum of the corresponding block device, are not the same. Work around this by
