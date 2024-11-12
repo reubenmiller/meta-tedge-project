@@ -12,3 +12,16 @@ local_conf_header:
     IMAGE_FSTYPES:remove = " rpi-sdimg"
     SDIMG_ROOTFS_TYPE = "ext4"
     MENDER_BOOT_PART_SIZE_MB = "64"
+
+    # Disable mender systemd dependency
+    MENDER_FEATURES_DISABLE:append = " mender-systemd"
+
+    # mender golang client 3.x
+    #PREFERRED_PROVIDER_mender-native = "mender-client-native"
+    #PREFERRED_RPROVIDER_mender-auth = "mender-client"
+    #PREFERRED_RPROVIDER_mender-update = "mender-client"
+
+    # mender cpp client >=4.x
+    PREFERRED_PROVIDER_mender-native = "mender-native"
+    PREFERRED_RPROVIDER_mender-auth = "mender"
+    PREFERRED_RPROVIDER_mender-update = "mender"
