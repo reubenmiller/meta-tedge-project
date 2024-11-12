@@ -7,7 +7,7 @@ overrides:
         meta-openembedded:
             commit: 4ad41baed6236d499804cbfc4f174042d84fce97
         meta-rust:
-            commit: 6750e846ebcaef9783e11fc6341888235738d238
+            commit: a5136be2ba408af1cc8afcde1c8e3d787dadd934
         meta-tedge:
             commit: 89ce3d130cf1be529edf58c3a876d38afcbe8757
         poky:
