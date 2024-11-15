@@ -46,7 +46,8 @@ repos:
     url: "https://github.com/rauc/meta-rauc.git"
 
   meta-rauc-community:
-    url: "https://github.com/rauc/meta-rauc-community"
+    url: "https://github.com/thin-edge/meta-rauc-community"
+    branch: kirkstone-fork
     layers:
       meta-rauc-raspberrypi:
 
