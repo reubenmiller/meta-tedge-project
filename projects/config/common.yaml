@@ -19,3 +19,12 @@ local_conf_header:
     IMAGE_BUILDINFO_VARS:append = " DATETIME DISTRO_NAME IMAGE_BASENAME IMAGE_NAME IMAGE_NAME_SUFFIX MACHINE TUNE_PKGARCH" 
     IMAGE_BUILDINFO_VARS:append = " MACHINE_FEATURES DISTRO_FEATURES COMMON_FEATURES IMAGE_FEATURES"
     IMAGE_BUILDINFO_VARS:append = " TUNE_FEATURES TARGET_FPU"
+
+    # Don't enable service by default as they will need to be bootstrapped first, though
+    # this may change in the future. But bootstrapping works anyway if the services are already enabled
+    # but they do consume more resources until it is bootstrapped
+    SYSTEMD_AUTO_ENABLE:tedge-agent = "disable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-c8y = "disable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-aws = "disable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-az = "disable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-collectd = "disable"
