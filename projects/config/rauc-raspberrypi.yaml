@@ -7,7 +7,6 @@ local_conf_header:
     RPI_USE_U_BOOT = "1"
     IMAGE_INSTALL:append = " rauc rauc-grow-data-part"
     DISTRO_FEATURES:append = " rauc"
-    PACKAGE_EXCLUDE:append = " rauc-mark-good"
     IMAGE_INSTALL:append = " kernel-image kernel-devicetree"
     PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
     IMAGE_FSTYPES = " tar.bz2 ext4 wic.bz2 wic.bmap"
