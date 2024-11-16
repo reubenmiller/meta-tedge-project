@@ -12,6 +12,13 @@ local_conf_header:
     TEDGE_CONFIG_SYMLINK = "/etc/tedge"
     TEDGE_CONFIG_SYMLINK_SRC = "/data/tedge"
 
+    # Enable services by default as services can't be enabled at runtime with a read-only rootfs
+    SYSTEMD_AUTO_ENABLE:tedge-agent = "enable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-c8y = "enable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-aws = "disable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-az = "disable"
+    SYSTEMD_AUTO_ENABLE:tedge-mapper-collectd = "disable"
+
     # `has_journal` interferes with the checksum of the image when viewed from the block device. Oddly
     # enough it is not present on disk, IOW, when the image is mounted readonly, the physical checksum
     # on disk, and the checksum of the corresponding block device, are not the same. Work around this by
