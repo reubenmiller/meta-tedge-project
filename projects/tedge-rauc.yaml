@@ -6,6 +6,7 @@ header:
     - config/raspberrypi.yaml
     - config/rauc-raspberrypi.yaml
     - config/package-management.yaml
+    - config/tedge-docker.yaml
 
 machine: raspberrypi4-64
 distro: poky
@@ -39,12 +40,14 @@ repos:
       meta-python:
       meta-networking:
       meta-multimedia:
+      meta-filesystems:
 
   meta-rauc:
     url: "https://github.com/rauc/meta-rauc.git"
 
   meta-rauc-community:
-    url: "https://github.com/rauc/meta-rauc-community"
+    url: "https://github.com/thin-edge/meta-rauc-community"
+    branch: kirkstone-fork
     layers:
       meta-rauc-raspberrypi:
 
@@ -58,3 +61,12 @@ repos:
       meta-tedge:
       meta-tedge-common:
       meta-tedge-rauc:
+      meta-tedge-extras:
+      meta-raspberrypi:
+
+  meta-lts-mixins-go:
+    url: "https://github.com/moto-timo/meta-lts-mixins.git"
+    branch: kirkstone/go
+
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/meta-virtualization"

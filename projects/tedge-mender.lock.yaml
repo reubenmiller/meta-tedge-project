@@ -2,6 +2,8 @@ header:
     version: 14
 overrides:
     repos:
+        meta-lts-mixins-go:
+            commit: 7b4c22b4114c5789a6cb7d8b0b7c7078cd9f0dc9
         meta-mender:
             commit: 9efa9409684e303472ed9dae749ab663909eb689
         meta-openembedded:
@@ -11,6 +13,8 @@ overrides:
         meta-rust:
             commit: a5136be2ba408af1cc8afcde1c8e3d787dadd934
         meta-tedge:
-            commit: 89ce3d130cf1be529edf58c3a876d38afcbe8757
+            commit: 4e562b91e8b1a44b9e19d9669208dd1a184bc820
+        meta-virtualization:
+            commit: c996df33763f292da5e7513c574272d7de23eafc
         poky:
             commit: 51bd4260cb9592af4b63059a30f4f977e0a2fad6

@@ -5,6 +5,7 @@ header:
     - config/common.yaml
     - config/mender-qemu.yaml
     - config/package-management.yaml
+    - config/tedge-docker.yaml
 
 machine: qemux86-64
 distro: poky
@@ -33,6 +34,7 @@ repos:
       meta-python:
       meta-networking:
       meta-multimedia:
+      meta-filesystems:
 
   meta-mender:
     url: "https://github.com/mendersoftware/meta-mender"
@@ -50,3 +52,11 @@ repos:
       meta-tedge:
       meta-tedge-common:
       meta-tedge-mender:
+      meta-tedge-extras:
+
+  meta-lts-mixins-go:
+    url: "https://github.com/moto-timo/meta-lts-mixins.git"
+    branch: kirkstone/go
+
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/meta-virtualization"
