@@ -13,6 +13,7 @@ local_conf_header:
     IMAGE_INSTALL:append = " gnupg"
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-dropbear"
     INIT_MANAGER="systemd"
+    TEDGE_CONFIG_DIR = "/etc/tedge"
 
     # Add /etc/build file with information about build
     INHERIT += "image-buildinfo"
