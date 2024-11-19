@@ -13,7 +13,7 @@ overrides:
         meta-rauc-community:
             commit: fdaccecf6f950ccc21628aa2d8a5d7f9557eaabc
         meta-tedge:
-            commit: 7e863c7c1360d55b6e353de5acb39ecf62bce95f
+            commit: e6ee4ba3b5f1f1dbaf5904013825def059cd449d
         meta-virtualization:
             commit: c996df33763f292da5e7513c574272d7de23eafc
         poky:
