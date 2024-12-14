@@ -1,5 +1,7 @@
 ## Getting started
 
+:warning: The kas project files have been moved to the [meta-tedge](https://github.com/thin-edge/meta-tedge) repository under the `kas` directory (where [meta-tedge](https://github.com/thin-edge/meta-tedge) is also the thin-edge.io Yocto Layer). The kas project files were moved to ease the development of the Yocto layer and to ensure that any changes can be validated before the changes are merged.
+
 This project shows how to build custom Yocto images which can be deployed to devices.
 
 Whilst the project can be modified to support your own setup, currently the project only includes the configuration required to deploy to the following devices:
